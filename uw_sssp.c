@@ -1,6 +1,7 @@
 //
 // Created by Mia Pulido Campdera on 12/6/21.
 //
+#include "uw_sssp.h"
 
 /* Calculate distances for each node from an input source node
  */

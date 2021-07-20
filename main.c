@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <GraphBLAS.h>
+#include "uw_sssp.h"
 
 void print_matrix_UINT64(GrB_Matrix mat, char const *label)
 {
@@ -157,7 +158,7 @@ int main(int argc, char **argv) {
     GrB_Vector_new(&result, GrB_UINT64, NUM_NODES);
 
     //Method call
-    sssp(&result, SRC_NODE, graph);
+    uw_sssp(&result, SRC_NODE, graph);
 
     //Print result
     print_vector_UINT64(result, "Node distances from source");
