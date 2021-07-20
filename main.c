@@ -78,53 +78,8 @@ void print_vector_UINT64(GrB_Vector vec, char const *label)
 }
 
 
-GrB_Info bfs(GrB_Vector result, GrB_Index source, GrB_Matrix graph) {
-
-    GrB_Index nodes;
-    GrB_Matrix_nrows(&nodes, graph);
-
-    GrB_Vector frontier, visited;
-    GrB_Vector_new(&frontier, GrB_BOOL, nodes);
-    GrB_Vector_new(&visited, GrB_UINT64, nodes);
-    GrB_Vector_setElement_BOOL(frontier, true, source);
-
-    GrB_Vector levels;
-    GrB_Vector_new(&levels, GrB_UINT64, nodes);
-    GrB_Vector_setElement_UINT64(levels, 0, source);
-
-    //Descriptor set up
-    GrB_Descriptor desc;
-    GrB_Descriptor_new(&desc);
-    GrB_Descriptor_set(desc, GrB_OUTP, GrB_REPLACE);
-    GrB_Descriptor_set(desc, GrB_INP0, GrB_TRAN);
-    GrB_Descriptor_set(desc, GrB_MASK, GrB_SCMP);
 
 
-    //Constant setup for BFS
-    int64_t level = 0;
-    GrB_Index nvals = 0;
-
-    //Do BFS, traverse graph
-
-    while (nvals < nodes) {
-        ++level;
-        GrB_Vector_eWiseAdd_BinaryOp(visited, GrB_NULL, GrB_NULL, GrB_LOR, visited, frontier, GrB_NULL);
-        //print_vector_UINT64(visited, "Visited");
-        GrB_mxv(frontier, visited, GrB_NULL, GxB_LOR_LAND_BOOL, graph, frontier, desc);
-        GrB_Vector_assign_UINT64(levels, frontier, GrB_NULL, level, GrB_ALL, nodes, GrB_NULL);
-        //print_vector_UINT64(frontier, "Wavefront");
-        GrB_Vector_nvals(&nvals, visited);
-    }
-
-    GrB_Vector_dup(result, levels);
-
-    GrB_Vector_free(&frontier);
-    GrB_Vector_free(&visited);
-    GrB_Descriptor_free(&desc);
-    GrB_Vector_free(&levels);
-
-    return GrB_SUCCESS;
-}
 
 GrB_Info sssp(GrB_Vector *result, GrB_Index source, GrB_Matrix graph) {
     GrB_Index nodes;
@@ -176,9 +131,10 @@ GrB_Info sssp(GrB_Vector *result, GrB_Index source, GrB_Matrix graph) {
 
 int main(int argc, char **argv) {
 
+    //Initialize GraphBLAS enviroment
     GrB_init(GrB_BLOCKING);
 
-    //Adj matrix set up
+    //Adjacency matrix set up
     GrB_Index const NUM_NODES = 7;
     GrB_Index const NUM_EDGES = 12;
 
@@ -196,14 +152,17 @@ int main(int argc, char **argv) {
     //Source set up
     GrB_Index const SRC_NODE = 0;
 
+    //Input, output vector set up
     GrB_Vector result;
     GrB_Vector_new(&result, GrB_UINT64, NUM_NODES);
 
-    print_vector_UINT64(result, "res, new");
-    bfs(&result, SRC_NODE, graph);
-    print_vector_UINT64(result, "res, final");
+    //Method call
+    sssp(&result, SRC_NODE, graph);
 
-    //Cleanup
+    //Print result
+    print_vector_UINT64(result, "Node distances from source");
+
+    //Free
     GrB_Matrix_free(&graph);
     GrB_Vector_free(&result);
 
