@@ -142,6 +142,33 @@ bsc_graphblas/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/bsc_graphblas.dir/build.make CMakeFiles/bsc_graphblas.dir/build
 .PHONY : bsc_graphblas/fast
 
+batch_sssp.o: batch_sssp.c.o
+
+.PHONY : batch_sssp.o
+
+# target to build an object file
+batch_sssp.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bsc_graphblas.dir/build.make CMakeFiles/bsc_graphblas.dir/batch_sssp.c.o
+.PHONY : batch_sssp.c.o
+
+batch_sssp.i: batch_sssp.c.i
+
+.PHONY : batch_sssp.i
+
+# target to preprocess a source file
+batch_sssp.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bsc_graphblas.dir/build.make CMakeFiles/bsc_graphblas.dir/batch_sssp.c.i
+.PHONY : batch_sssp.c.i
+
+batch_sssp.s: batch_sssp.c.s
+
+.PHONY : batch_sssp.s
+
+# target to generate assembly for a file
+batch_sssp.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bsc_graphblas.dir/build.make CMakeFiles/bsc_graphblas.dir/batch_sssp.c.s
+.PHONY : batch_sssp.c.s
+
 main.o: main.c.o
 
 .PHONY : main.o
@@ -232,6 +259,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... bsc_graphblas"
+	@echo "... batch_sssp.o"
+	@echo "... batch_sssp.i"
+	@echo "... batch_sssp.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

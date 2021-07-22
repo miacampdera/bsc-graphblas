@@ -78,6 +78,9 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/Users/miapulidocampdera/desktop/bsc-graphblas/batch_sssp.c">
+			<Option target="bsc_graphblas"/>
+		</Unit>
 		<Unit filename="/Users/miapulidocampdera/desktop/bsc-graphblas/main.c">
 			<Option target="bsc_graphblas"/>
 		</Unit>
@@ -88,6 +91,9 @@
 			<Option target="bsc_graphblas"/>
 		</Unit>
 		<Unit filename="/Users/miapulidocampdera/desktop/bsc-graphblas/w_sssp.c">
+			<Option target="bsc_graphblas"/>
+		</Unit>
+		<Unit filename="/Users/miapulidocampdera/desktop/bsc-graphblas/w_sssp.h">
 			<Option target="bsc_graphblas"/>
 		</Unit>
 		<Unit filename="/Users/miapulidocampdera/desktop/bsc-graphblas/CMakeLists.txt">
