@@ -106,7 +106,7 @@ int main(int argc, char **argv) {
     GrB_Vector_new(&result, GrB_UINT64, NUM_NODES);
 
     //Method call
-    w_sssp(&result, SRC_NODE, graph);
+    uw_sssp(&result, SRC_NODE, graph);
 
     //Print result
     print_vector_UINT64(result, "Node distances from source");

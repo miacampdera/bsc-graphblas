@@ -30,15 +30,12 @@ GrB_Info w_sssp(GrB_Vector result, GrB_Index source, GrB_Matrix graph) {
     //Traverse graph
     while (nvals < nodes) {
         GrB_Vector_eWiseAdd_BinaryOp(visited, GrB_NULL, GrB_NULL, GrB_LOR, visited, frontier, GrB_NULL);
-        //print_vector_UINT64(visited, "Visited");
         GrB_mxv(frontier, visited, GrB_NULL, GrB_MIN_PLUS_SEMIRING_UINT64, graph, frontier, desc);
-        //print_vector_UINT64(frontier, "distance");
         GrB_Vector_eWiseAdd_BinaryOp(distance, GrB_NULL, GrB_NULL, GrB_PLUS_UINT64, distance, frontier, GrB_NULL);
-        //print_vector_UINT64(dist, "distances");
         GrB_Vector_nvals(&nvals, visited);
     }
 
-    GrB_Vector_dup(result, frontier);
+    GrB_Vector_dup(result, distance); //copy final distance vector (levels) to result
 
     GrB_Vector_free(&distance);
     GrB_Vector_free(&visited);
