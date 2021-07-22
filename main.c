@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <GraphBLAS.h>
 #include "uw_sssp.h"
+#include "w_sssp.h"
 
 void print_matrix_UINT64(GrB_Matrix mat, char const *label)
 {
@@ -75,59 +76,6 @@ void print_vector_UINT64(GrB_Vector vec, char const *label)
         }
     }
     printf("]\n");
-
-}
-
-
-
-
-
-GrB_Info sssp(GrB_Vector *result, GrB_Index source, GrB_Matrix graph) {
-    GrB_Index nodes;
-    GrB_Matrix_nrows(&nodes, graph);
-
-    GrB_Vector dist, visited, frontier;
-    GrB_Vector_new(&dist, GrB_UINT64, nodes);
-    GrB_Vector_new(&visited, GrB_UINT64, nodes);
-    GrB_Vector_setElement_UINT64(dist, 1, source);
-    GrB_Vector_new(&frontier, GrB_UINT64, nodes);
-    GrB_Vector_setElement_UINT64(frontier, true, source);
-
-    //Descriptor set up
-    GrB_Descriptor desc;
-    GrB_Descriptor_new(&desc);
-    GrB_Descriptor_set(desc, GrB_OUTP, GrB_REPLACE);
-    GrB_Descriptor_set(desc, GrB_INP0, GrB_TRAN);
-    GrB_Descriptor_set(desc, GrB_MASK, GrB_SCMP);
-
-
-    //Constant setup for SSSP
-    GrB_Index nvals = 0;
-
-    //Traverse graph
-    while (nvals < nodes) {
-        GrB_Vector_eWiseAdd_BinaryOp(visited, GrB_NULL, GrB_NULL, GrB_LOR, visited, frontier, GrB_NULL);
-        //print_vector_UINT64(visited, "Visited");
-        GrB_mxv(frontier, visited, GrB_NULL, GrB_MIN_PLUS_SEMIRING_UINT64, graph, frontier, desc);
-        print_vector_UINT64(frontier, "distance");
-        GrB_Vector_eWiseAdd_BinaryOp(dist, GrB_NULL, GrB_NULL, GrB_PLUS_UINT64, dist, frontier, GrB_NULL);
-        print_vector_UINT64(dist, "distances");
-        GrB_Vector_nvals(&nvals, visited);
-    }
-
-    GrB_Vector_dup(&result, frontier);
-
-    //print_vector_UINT64(levels, "levels");
-    //print_vector_UINT64(result, "res");
-
-    GrB_Vector_free(&dist);
-    GrB_Vector_free(&visited);
-    GrB_Vector_free(&frontier);
-    GrB_Descriptor_free(&desc);
-
-
-    return GrB_SUCCESS;
-
 }
 
 int main(int argc, char **argv) {
@@ -158,7 +106,7 @@ int main(int argc, char **argv) {
     GrB_Vector_new(&result, GrB_UINT64, NUM_NODES);
 
     //Method call
-    uw_sssp(&result, SRC_NODE, graph);
+    w_sssp(&result, SRC_NODE, graph);
 
     //Print result
     print_vector_UINT64(result, "Node distances from source");

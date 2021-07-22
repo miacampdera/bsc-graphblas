@@ -62,10 +62,10 @@ RM = /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/miapulidocampdera/Desktop/bsc-graphblas
+CMAKE_SOURCE_DIR = /Users/miapulidocampdera/desktop/bsc-graphblas
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/miapulidocampdera/Desktop/bsc-graphblas/cmake-build-debug
+CMAKE_BINARY_DIR = /Users/miapulidocampdera/desktop/bsc-graphblas/cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/bsc_graphblas.dir/depend.make
@@ -78,29 +78,59 @@ include CMakeFiles/bsc_graphblas.dir/flags.make
 
 CMakeFiles/bsc_graphblas.dir/main.c.o: CMakeFiles/bsc_graphblas.dir/flags.make
 CMakeFiles/bsc_graphblas.dir/main.c.o: ../main.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/miapulidocampdera/Desktop/bsc-graphblas/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/bsc_graphblas.dir/main.c.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/bsc_graphblas.dir/main.c.o -c /Users/miapulidocampdera/Desktop/bsc-graphblas/main.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/miapulidocampdera/desktop/bsc-graphblas/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/bsc_graphblas.dir/main.c.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/bsc_graphblas.dir/main.c.o -c /Users/miapulidocampdera/desktop/bsc-graphblas/main.c
 
 CMakeFiles/bsc_graphblas.dir/main.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/bsc_graphblas.dir/main.c.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/miapulidocampdera/Desktop/bsc-graphblas/main.c > CMakeFiles/bsc_graphblas.dir/main.c.i
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/miapulidocampdera/desktop/bsc-graphblas/main.c > CMakeFiles/bsc_graphblas.dir/main.c.i
 
 CMakeFiles/bsc_graphblas.dir/main.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/bsc_graphblas.dir/main.c.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/miapulidocampdera/Desktop/bsc-graphblas/main.c -o CMakeFiles/bsc_graphblas.dir/main.c.s
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/miapulidocampdera/desktop/bsc-graphblas/main.c -o CMakeFiles/bsc_graphblas.dir/main.c.s
+
+CMakeFiles/bsc_graphblas.dir/uw_sssp.c.o: CMakeFiles/bsc_graphblas.dir/flags.make
+CMakeFiles/bsc_graphblas.dir/uw_sssp.c.o: ../uw_sssp.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/miapulidocampdera/desktop/bsc-graphblas/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/bsc_graphblas.dir/uw_sssp.c.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/bsc_graphblas.dir/uw_sssp.c.o -c /Users/miapulidocampdera/desktop/bsc-graphblas/uw_sssp.c
+
+CMakeFiles/bsc_graphblas.dir/uw_sssp.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/bsc_graphblas.dir/uw_sssp.c.i"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/miapulidocampdera/desktop/bsc-graphblas/uw_sssp.c > CMakeFiles/bsc_graphblas.dir/uw_sssp.c.i
+
+CMakeFiles/bsc_graphblas.dir/uw_sssp.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/bsc_graphblas.dir/uw_sssp.c.s"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/miapulidocampdera/desktop/bsc-graphblas/uw_sssp.c -o CMakeFiles/bsc_graphblas.dir/uw_sssp.c.s
+
+CMakeFiles/bsc_graphblas.dir/w_sssp.c.o: CMakeFiles/bsc_graphblas.dir/flags.make
+CMakeFiles/bsc_graphblas.dir/w_sssp.c.o: ../w_sssp.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/miapulidocampdera/desktop/bsc-graphblas/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/bsc_graphblas.dir/w_sssp.c.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/bsc_graphblas.dir/w_sssp.c.o -c /Users/miapulidocampdera/desktop/bsc-graphblas/w_sssp.c
+
+CMakeFiles/bsc_graphblas.dir/w_sssp.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/bsc_graphblas.dir/w_sssp.c.i"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/miapulidocampdera/desktop/bsc-graphblas/w_sssp.c > CMakeFiles/bsc_graphblas.dir/w_sssp.c.i
+
+CMakeFiles/bsc_graphblas.dir/w_sssp.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/bsc_graphblas.dir/w_sssp.c.s"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/miapulidocampdera/desktop/bsc-graphblas/w_sssp.c -o CMakeFiles/bsc_graphblas.dir/w_sssp.c.s
 
 # Object files for target bsc_graphblas
 bsc_graphblas_OBJECTS = \
-"CMakeFiles/bsc_graphblas.dir/main.c.o"
+"CMakeFiles/bsc_graphblas.dir/main.c.o" \
+"CMakeFiles/bsc_graphblas.dir/uw_sssp.c.o" \
+"CMakeFiles/bsc_graphblas.dir/w_sssp.c.o"
 
 # External object files for target bsc_graphblas
 bsc_graphblas_EXTERNAL_OBJECTS =
 
 bsc_graphblas: CMakeFiles/bsc_graphblas.dir/main.c.o
+bsc_graphblas: CMakeFiles/bsc_graphblas.dir/uw_sssp.c.o
+bsc_graphblas: CMakeFiles/bsc_graphblas.dir/w_sssp.c.o
 bsc_graphblas: CMakeFiles/bsc_graphblas.dir/build.make
 bsc_graphblas: /usr/local/lib/libgraphblas.dylib
 bsc_graphblas: CMakeFiles/bsc_graphblas.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/miapulidocampdera/Desktop/bsc-graphblas/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking C executable bsc_graphblas"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/miapulidocampdera/desktop/bsc-graphblas/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking C executable bsc_graphblas"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/bsc_graphblas.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -113,6 +143,6 @@ CMakeFiles/bsc_graphblas.dir/clean:
 .PHONY : CMakeFiles/bsc_graphblas.dir/clean
 
 CMakeFiles/bsc_graphblas.dir/depend:
-	cd /Users/miapulidocampdera/Desktop/bsc-graphblas/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/miapulidocampdera/Desktop/bsc-graphblas /Users/miapulidocampdera/Desktop/bsc-graphblas /Users/miapulidocampdera/Desktop/bsc-graphblas/cmake-build-debug /Users/miapulidocampdera/Desktop/bsc-graphblas/cmake-build-debug /Users/miapulidocampdera/Desktop/bsc-graphblas/cmake-build-debug/CMakeFiles/bsc_graphblas.dir/DependInfo.cmake --color=$(COLOR)
+	cd /Users/miapulidocampdera/desktop/bsc-graphblas/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/miapulidocampdera/desktop/bsc-graphblas /Users/miapulidocampdera/desktop/bsc-graphblas /Users/miapulidocampdera/desktop/bsc-graphblas/cmake-build-debug /Users/miapulidocampdera/desktop/bsc-graphblas/cmake-build-debug /Users/miapulidocampdera/desktop/bsc-graphblas/cmake-build-debug/CMakeFiles/bsc_graphblas.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/bsc_graphblas.dir/depend
 

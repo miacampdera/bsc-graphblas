@@ -1,14 +1,14 @@
 //
-// Created by Mia Pulido Campdera on 12/6/21.
+// Created by Mia Pulido Campdera on 18/6/21.
 //
 
-#ifndef UW_SSSP_H
-#define UW_SSSP_H
+#ifndef W_SSSP_H
+#define W_SSSP_H
 #include <GraphBLAS.h>
 
-    GrB_Info uw_sssp(
+    GrB_Info w_sssp(
             GrB_Vector result,
             GrB_Index source,
             GrB_Matrix graph);
 
-#endif //UW_SSSP_H
+#endif //W_SSSP_H

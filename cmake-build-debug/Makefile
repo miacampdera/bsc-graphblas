@@ -67,10 +67,10 @@ RM = /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/miapulidocampdera/Desktop/bsc-graphblas
+CMAKE_SOURCE_DIR = /Users/miapulidocampdera/desktop/bsc-graphblas
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/miapulidocampdera/Desktop/bsc-graphblas/cmake-build-debug
+CMAKE_BINARY_DIR = /Users/miapulidocampdera/desktop/bsc-graphblas/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -99,9 +99,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/miapulidocampdera/Desktop/bsc-graphblas/cmake-build-debug/CMakeFiles /Users/miapulidocampdera/Desktop/bsc-graphblas/cmake-build-debug//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/miapulidocampdera/desktop/bsc-graphblas/cmake-build-debug/CMakeFiles /Users/miapulidocampdera/desktop/bsc-graphblas/cmake-build-debug//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/miapulidocampdera/Desktop/bsc-graphblas/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/miapulidocampdera/desktop/bsc-graphblas/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -169,6 +169,60 @@ main.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/bsc_graphblas.dir/build.make CMakeFiles/bsc_graphblas.dir/main.c.s
 .PHONY : main.c.s
 
+uw_sssp.o: uw_sssp.c.o
+
+.PHONY : uw_sssp.o
+
+# target to build an object file
+uw_sssp.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bsc_graphblas.dir/build.make CMakeFiles/bsc_graphblas.dir/uw_sssp.c.o
+.PHONY : uw_sssp.c.o
+
+uw_sssp.i: uw_sssp.c.i
+
+.PHONY : uw_sssp.i
+
+# target to preprocess a source file
+uw_sssp.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bsc_graphblas.dir/build.make CMakeFiles/bsc_graphblas.dir/uw_sssp.c.i
+.PHONY : uw_sssp.c.i
+
+uw_sssp.s: uw_sssp.c.s
+
+.PHONY : uw_sssp.s
+
+# target to generate assembly for a file
+uw_sssp.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bsc_graphblas.dir/build.make CMakeFiles/bsc_graphblas.dir/uw_sssp.c.s
+.PHONY : uw_sssp.c.s
+
+w_sssp.o: w_sssp.c.o
+
+.PHONY : w_sssp.o
+
+# target to build an object file
+w_sssp.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bsc_graphblas.dir/build.make CMakeFiles/bsc_graphblas.dir/w_sssp.c.o
+.PHONY : w_sssp.c.o
+
+w_sssp.i: w_sssp.c.i
+
+.PHONY : w_sssp.i
+
+# target to preprocess a source file
+w_sssp.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bsc_graphblas.dir/build.make CMakeFiles/bsc_graphblas.dir/w_sssp.c.i
+.PHONY : w_sssp.c.i
+
+w_sssp.s: w_sssp.c.s
+
+.PHONY : w_sssp.s
+
+# target to generate assembly for a file
+w_sssp.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bsc_graphblas.dir/build.make CMakeFiles/bsc_graphblas.dir/w_sssp.c.s
+.PHONY : w_sssp.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -181,6 +235,12 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... uw_sssp.o"
+	@echo "... uw_sssp.i"
+	@echo "... uw_sssp.s"
+	@echo "... w_sssp.o"
+	@echo "... w_sssp.i"
+	@echo "... w_sssp.s"
 .PHONY : help
 
 
