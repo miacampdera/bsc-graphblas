@@ -8,7 +8,6 @@
 
     GrB_Info batch_sssp(
             GrB_Vector result,
-            GrB_Index source,
             GrB_Matrix graph);
 
 #endif //BATCH_SSSP_H

@@ -24,12 +24,12 @@ GrB_Info w_sssp(GrB_Vector result, GrB_Index source, GrB_Matrix graph) {
     GrB_Descriptor_set(desc, GrB_MASK, GrB_SCMP);
 
 
-    //Constant setup for SSSP
+    //Constant set up
     GrB_Index nvals = 0;
 
     //Traverse graph
     while (nvals < nodes) {
-        GrB_Vector_eWiseAdd_BinaryOp(visited, GrB_NULL, GrB_NULL, GrB_LOR, visited, frontier, GrB_NULL);
+        GrB_Vector_eWiseAdd_BinaryOp(visited, GrB_NULL, GrB_NULL, GrB_LOR, visited, frontier, GrB_NULL); //keep track of visited nodes
         GrB_mxv(frontier, visited, GrB_NULL, GrB_MIN_PLUS_SEMIRING_UINT64, graph, frontier, desc);
         GrB_Vector_eWiseAdd_BinaryOp(distance, GrB_NULL, GrB_NULL, GrB_PLUS_UINT64, distance, frontier, GrB_NULL);
         GrB_Vector_nvals(&nvals, visited);
@@ -37,6 +37,7 @@ GrB_Info w_sssp(GrB_Vector result, GrB_Index source, GrB_Matrix graph) {
 
     GrB_Vector_dup(result, distance); //copy final distance vector (levels) to result
 
+    //Free
     GrB_Vector_free(&distance);
     GrB_Vector_free(&visited);
     GrB_Vector_free(&frontier);

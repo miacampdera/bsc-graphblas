@@ -2,6 +2,7 @@
 #include <GraphBLAS.h>
 #include "uw_sssp.h"
 #include "w_sssp.h"
+#include "batch_sssp.h"
 
 void print_matrix_UINT64(GrB_Matrix mat, char const *label)
 {
