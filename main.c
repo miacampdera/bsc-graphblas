@@ -103,18 +103,25 @@ int main(int argc, char **argv) {
     GrB_Index const SRC_NODE = 0;
 
     //Input, output vector set up
-    GrB_Vector result;
-    GrB_Vector_new(&result, GrB_UINT64, NUM_NODES);
+    //GrB_Vector result;
+    //GrB_Vector_new(&result, GrB_UINT64, NUM_NODES);
 
     //Method call
-    uw_sssp(&result, SRC_NODE, graph);
+    //uw_sssp(&result, SRC_NODE, graph);
+    GrB_Vector distances[NUM_NODES];
+
+    batch_sssp(distances, graph);
+
+    for (int i = 0; i < NUM_NODES; ++i) {
+        print_vector_UINT64(distances[i], "node");
+    }
 
     //Print result
-    print_vector_UINT64(result, "Node distances from source");
+    //print_vector_UINT64(result, "Node distances from source");
 
     //Free
     GrB_Matrix_free(&graph);
-    GrB_Vector_free(&result);
+    //GrB_Vector_free(&result);
 
     GrB_finalize();
 }
