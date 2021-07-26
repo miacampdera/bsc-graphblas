@@ -3,9 +3,7 @@
 
 CMakeFiles/bsc_graphblas.dir/batch_sssp.c.o: ../batch_sssp.c
 CMakeFiles/bsc_graphblas.dir/batch_sssp.c.o: ../batch_sssp.h
-CMakeFiles/bsc_graphblas.dir/batch_sssp.c.o: ../map.c
 CMakeFiles/bsc_graphblas.dir/batch_sssp.c.o: ../map.h
-CMakeFiles/bsc_graphblas.dir/batch_sssp.c.o: ../uw_sssp.c
 CMakeFiles/bsc_graphblas.dir/batch_sssp.c.o: ../uw_sssp.h
 CMakeFiles/bsc_graphblas.dir/batch_sssp.c.o: /usr/local/include/GraphBLAS.h
 

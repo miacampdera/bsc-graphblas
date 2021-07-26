@@ -3,8 +3,8 @@
 //
 
 #include "batch_sssp.h"
-#include "uw_sssp.c"
-#include "map.c"
+#include "uw_sssp.h"
+#include "map.h"
 
 GrB_Info batch_sssp(GrB_Vector distances[], GrB_Matrix graph) {
 
