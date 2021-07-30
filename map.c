@@ -18,4 +18,3 @@ GrB_Info map_contains(GrB_Vector distances[], GrB_Index node) {
 GrB_Info map_get(GrB_Vector distances[], GrB_Index node) {
     return distances[node];
 }
-

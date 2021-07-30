@@ -6,23 +6,27 @@
 
 #IncludeRegexTransform: 
 
-/Users/miapulidocampdera/desktop/bsc-graphblas/batch_sssp.c
-batch_sssp.h
-/Users/miapulidocampdera/desktop/bsc-graphblas/batch_sssp.h
+/Users/miapulidocampdera/desktop/bsc-graphblas/main.c
+stdio.h
+-
+GraphBLAS.h
+-
 uw_sssp.h
 /Users/miapulidocampdera/desktop/bsc-graphblas/uw_sssp.h
+w_sssp.h
+/Users/miapulidocampdera/desktop/bsc-graphblas/w_sssp.h
 map.h
 /Users/miapulidocampdera/desktop/bsc-graphblas/map.h
 
-/Users/miapulidocampdera/desktop/bsc-graphblas/batch_sssp.h
-GraphBLAS.h
--
-
 /Users/miapulidocampdera/desktop/bsc-graphblas/map.h
 GraphBLAS.h
 -
 
 /Users/miapulidocampdera/desktop/bsc-graphblas/uw_sssp.h
+GraphBLAS.h
+-
+
+/Users/miapulidocampdera/desktop/bsc-graphblas/w_sssp.h
 GraphBLAS.h
 -
 

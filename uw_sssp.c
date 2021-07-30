@@ -3,7 +3,14 @@
 //
 #include "uw_sssp.h"
 
-/* Calculate distances for each node from an input source node
+/* \brief Unweighted single source shortest path algorithm. Calculates the shortest distance from a source node
+ * to every other node in the graph.
+ *
+ * @param[in]   result  empty vector to fill in with calculated distances (graphblas vector)
+ *              source  index of start node (graphblas index)
+ *              graph   unweighted adjacency matrix (graphblas matrix)
+ *
+ * @param[out]  result vector of distances, index of vector corresponds to node index.
  */
 GrB_Info uw_sssp(GrB_Vector result, GrB_Index source, GrB_Matrix graph) {
 
