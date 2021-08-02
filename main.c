@@ -1,8 +1,7 @@
 #include <stdio.h>
 #include <GraphBLAS.h>
 #include "uw_sssp.h"
-#include "w_sssp.h"
-#include "map.h"
+#include "batch_sssp.h"
 
 void print_matrix_UINT64(GrB_Matrix mat, char const *label)
 {
@@ -80,26 +79,6 @@ void print_vector_UINT64(GrB_Vector vec, char const *label)
 }
 
 
-GrB_Info batch_sssp(GrB_Vector distances[], GrB_Matrix graph) {
-
-    GrB_Index nodes;
-    GrB_Matrix_nrows(&nodes, graph); //extract number of nodes from input matrix
-
-    for (int node = 0; node < nodes; ++node) {
-        GrB_Vector distance;
-        GrB_Vector_new(&distance, GrB_UINT64, nodes);
-        if (map_contains(distances, node)) {
-            GrB_Vector known;
-            GrB_Vector_new(&known, GrB_UINT64, nodes);
-            GrB_Vector_dup(known, map_get(distances, node));
-            //TODO: add dist from node to curr to vector
-            GrB_Vector_eWiseAdd_BinaryOp(distance, GrB_NULL, GrB_NULL, GrB_PLUS_UINT64, distance, known, GrB_NULL);
-
-        } else {
-            map_add(distances, node, uw_sssp(distance, node, graph));
-        }
-    }
-}
 
 int main(int argc, char **argv) {
 
@@ -130,19 +109,17 @@ int main(int argc, char **argv) {
 
     //Method call
     //uw_sssp(&result, SRC_NODE, graph);
-    GrB_Vector distances[NUM_NODES];
-
-
-
-    batch_sssp(distances, graph);
-
-    for (int i = 0; i < NUM_NODES; ++i) {
-        print_vector_UINT64(distances[i], "node");
-    }
 
     //Print result
     //print_vector_UINT64(result, "Node distances from source");
 
+    GrB_Vector distances[NUM_NODES];
+
+    batch_sssp(distances, graph);
+
+    for (int i = 0; i < NUM_NODES; ++i) {
+        print_vector_UINT64(distances[i], "vector");
+    }
     //Free
     GrB_Matrix_free(&graph);
     //GrB_Vector_free(&result);

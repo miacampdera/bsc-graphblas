@@ -1,20 +1,20 @@
 //
-// Created by Mia Pulido Campdera on 17/7/21.
+// Created by Mia Pulido Campdera on 24/7/21.
 //
 
 #include "map.h"
 
-GrB_Info map_add(GrB_Vector distances[], GrB_Index node, GrB_Vector vector) {
-    distances[node] = vector;
+void map_add(GrB_Vector *map, GrB_Index node, GrB_Vector vector) {
+    *(map + node) = vector;
 }
 
-GrB_Info map_contains(GrB_Vector distances[], GrB_Index node) {
-    if (distances[node]) {
+bool map_contains(GrB_Vector *map, GrB_Index node) {
+    if (*(map + node)) {
         return true;
     }
     return false;
 }
 
-GrB_Info map_get(GrB_Vector distances[], GrB_Index node) {
-    return distances[node];
+GrB_Vector map_get(GrB_Vector *map, GrB_Index node) {
+    return *(map + node);
 }
