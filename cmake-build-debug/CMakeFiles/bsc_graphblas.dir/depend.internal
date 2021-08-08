@@ -4,13 +4,14 @@
 CMakeFiles/bsc_graphblas.dir/batch_sssp.c.o
  /Users/miapulidocampdera/desktop/bsc-graphblas/batch_sssp.c
  /Users/miapulidocampdera/desktop/bsc-graphblas/batch_sssp.h
- /Users/miapulidocampdera/desktop/bsc-graphblas/map.h
  /Users/miapulidocampdera/desktop/bsc-graphblas/uw_sssp.h
+ /Users/miapulidocampdera/desktop/bsc-graphblas/w_sssp.h
  /usr/local/include/GraphBLAS.h
 CMakeFiles/bsc_graphblas.dir/main.c.o
  /Users/miapulidocampdera/desktop/bsc-graphblas/batch_sssp.h
  /Users/miapulidocampdera/desktop/bsc-graphblas/main.c
  /Users/miapulidocampdera/desktop/bsc-graphblas/uw_sssp.h
+ /Users/miapulidocampdera/desktop/bsc-graphblas/w_sssp.h
  /usr/local/include/GraphBLAS.h
 CMakeFiles/bsc_graphblas.dir/map.c.o
  /Users/miapulidocampdera/desktop/bsc-graphblas/map.c

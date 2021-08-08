@@ -3,16 +3,18 @@
 //
 
 #include "map.h"
+#include <stdbool.h>
 
 void map_add(GrB_Vector *map, GrB_Index node, GrB_Vector vector) {
     *(map + node) = vector;
 }
 
 bool map_contains(GrB_Vector *map, GrB_Index node) {
-    if (*(map + node)) {
+    GrB_Vector v = *(map + node);
+   /*TODO if () {
         return true;
     }
-    return false;
+    return false;*/
 }
 
 GrB_Vector map_get(GrB_Vector *map, GrB_Index node) {

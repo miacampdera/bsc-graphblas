@@ -4,24 +4,37 @@
 
 #include "batch_sssp.h"
 #include "uw_sssp.h"
-#include "map.h"
+#include "w_sssp.h"
 
-GrB_Info batch_sssp(GrB_Vector distances[], GrB_Matrix graph) {
+
+GrB_Info batch_sssp(GrB_Matrix distances, GrB_Matrix graph) {
 
     GrB_Index nodes;
     GrB_Matrix_nrows(&nodes, graph); //extract number of nodes from input matrix
 
+    GrB_Matrix result;
+
+    GrB_Matrix_new(&result, GrB_UINT64, nodes, nodes);
+
+    int64_t row = 0;
+
     for (int node = 0; node < nodes; ++node) {
+        GrB_Index source = node;
         GrB_Vector distance;
         GrB_Vector_new(&distance, GrB_UINT64, nodes);
-        if (map_contains(&distances, node)) {
-            GrB_Vector_dup(distance, map_get(&distances, node));
-            //TODO: add dist from node to curr to vector
-            GrB_Vector_eWiseAdd_BinaryOp(distance, GrB_NULL, GrB_NULL, GrB_PLUS_UINT64, distance, distance, GrB_NULL);
-
-        } else {
-            uw_sssp(distance, node, graph);
+        uw_sssp(&distance, source, graph);
+        for (int i = 0; i < nodes; ++i) {
+            int64_t value;
+            GrB_Vector_extractElement_UINT64(&value, distance, i);
+            GrB_Matrix_setElement_UINT64(result, value, row, i);
         }
-        map_add(&distances, node, distance);
+        ++row;
     }
+
+    GrB_Matrix_dup(distances, result);
+
+    //Free
+    GrB_Matrix_free(&result);
+
+    return GrB_SUCCESS; //GraphBLAS return
 }

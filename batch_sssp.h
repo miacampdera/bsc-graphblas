@@ -7,7 +7,7 @@
 #include <GraphBLAS.h>
 
 GrB_Info batch_sssp(
-        GrB_Vector distances[],
+        GrB_Matrix distances,
         GrB_Matrix graph);
 
 #endif //BATCH_SSSP_H
