@@ -6,7 +6,15 @@
 #include "uw_sssp.h"
 #include "w_sssp.h"
 
-
+/* \brief Batch single source shortest path algorithm. Calculates the shortest distance from every node
+ * to every other node in the graph.
+ *
+ * @param[in]   distances  empty matrix to fill in with calculated distances (graphblas matrix)
+ *              graph      unweighted adjacency matrix (graphblas matrix)
+ *
+ * @param[out]  distances  matrix of distances, row index corresponds to node index, rows correspond to
+ * the calculated distance vector for that node.
+ */
 GrB_Info batch_sssp(GrB_Matrix distances, GrB_Matrix graph) {
 
     GrB_Index nodes;

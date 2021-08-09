@@ -4,20 +4,20 @@
 #include "w_sssp.h"
 #include "batch_sssp.h"
 
-void print_matrix_UINT64(GrB_Matrix mat, char const *label)
+void print_matrix_UINT64(GrB_Matrix matrix, char const *label)
 {
-    GrB_Index M,N;
-    GrB_Matrix_nrows(&M, mat);
-    GrB_Matrix_ncols(&N, mat);
+    GrB_Index rows, cols;
+    GrB_Matrix_nrows(&rows, matrix);
+    GrB_Matrix_ncols(&cols, matrix);
 
     GrB_Index val;
     GrB_Info ret_val;
 
     printf("Matrix: %s =\n", label);
-    for (GrB_Index row = 0; row < M; ++row) {
+    for (GrB_Index row = 0; row < rows; ++row) {
         printf("[");
-        for (GrB_Index col = 0; col < N; ++col) {
-            ret_val = GrB_Matrix_extractElement_UINT64(&val, mat, row, col);
+        for (GrB_Index col = 0; col < cols; ++col) {
+            ret_val = GrB_Matrix_extractElement_UINT64(&val, matrix, row, col);
             if (GrB_SUCCESS == ret_val) {
                 if (col == 0) {
                     printf("%3ld", (long)val);
@@ -32,9 +32,9 @@ void print_matrix_UINT64(GrB_Matrix mat, char const *label)
                 }
             } else {
                 if (col == 0) {
-                    printf("  ERR");
+                    printf("  error");
                 } else {
-                    printf(", ERR");
+                    printf(", error");
                 }
             }
         }
@@ -42,11 +42,10 @@ void print_matrix_UINT64(GrB_Matrix mat, char const *label)
     }
 }
 
-
-void print_vector_UINT64(GrB_Vector vec, char const *label)
+void print_vector_UINT64(GrB_Vector vector, char const *label)
 {
-    GrB_Index N;
-    GrB_Vector_size(&N, vec);
+    GrB_Index index;
+    GrB_Vector_size(&index, vector);
 
     GrB_Index val;
     GrB_Info ret_val;
@@ -54,8 +53,8 @@ void print_vector_UINT64(GrB_Vector vec, char const *label)
     printf("Vector: %s =\n", label);
 
     printf("[");
-    for (GrB_Index idx = 0; idx < N; ++idx) {
-        ret_val = GrB_Vector_extractElement_UINT64(&val, vec, idx);
+    for (GrB_Index idx = 0; idx < index; ++idx) {
+        ret_val = GrB_Vector_extractElement_UINT64(&val, vector, idx);
         if (GrB_SUCCESS == ret_val) {
             if (idx == 0) {
                 printf("%3ld", (long)val);
@@ -70,9 +69,9 @@ void print_vector_UINT64(GrB_Vector vec, char const *label)
             }
         } else {
             if (idx == 0) {
-                printf("  ERR");
+                printf("  error");
             } else {
-                printf(", ERR");
+                printf(", error");
             }
         }
     }
@@ -80,11 +79,11 @@ void print_vector_UINT64(GrB_Vector vec, char const *label)
 }
 
 void run_uw() {
-    GrB_Index const NUM_NODES = 7;
-    GrB_Index const NUM_EDGES = 12;
+    GrB_Index const NUM_NODES = 5;
+    GrB_Index const NUM_EDGES = 9;
 
-    GrB_Index row_indices[] = {0, 0, 1, 1, 2, 3, 3, 4, 5, 6, 6, 6};
-    GrB_Index col_indices[] = {1, 3, 4, 6, 5, 0, 2, 5, 2, 2, 3, 4};
+    GrB_Index row_indices[] = {0, 0, 1, 1, 2, 2, 3, 3, 4};
+    GrB_Index col_indices[] = {1, 2, 2, 4, 3, 4, 0, 4, 1};
 
     bool values[] = {true, true, true, true, true, true, true, true, true, true, true, true};
 
@@ -113,13 +112,13 @@ void run_uw() {
 }
 
 void run_w() {
-    GrB_Index const NUM_NODES = 7;
-    GrB_Index const NUM_EDGES = 12;
+    GrB_Index const NUM_NODES = 5;
+    GrB_Index const NUM_EDGES = 9;
 
-    GrB_Index row_indices[] = {0, 0, 1, 1, 2, 3, 3, 4, 5, 6, 6, 6};
-    GrB_Index col_indices[] = {1, 3, 4, 6, 5, 0, 2, 5, 2, 2, 3, 4};
+    GrB_Index row_indices[] = {0, 0, 1, 1, 2, 2, 3, 3, 4};
+    GrB_Index col_indices[] = {1, 2, 2, 4, 3, 4, 0, 4, 1};
 
-    int64_t values[] = {2, 3, 1, 6, 5, 6, 1, 4, 3, 5, 1, 2};
+    int64_t values[] = {1, 4, 3, 2, 2, 1, 3, 4, 1};
 
     GrB_Matrix graph;
     GrB_Matrix_new(&graph, GrB_UINT64, NUM_NODES, NUM_NODES);
@@ -147,11 +146,11 @@ void run_w() {
 
 void run_batch() {
     //Adjacency matrix set up
-    GrB_Index const NUM_NODES = 7;
-    GrB_Index const NUM_EDGES = 12;
+    GrB_Index const NUM_NODES = 5;
+    GrB_Index const NUM_EDGES = 9;
 
-    GrB_Index row_indices[] = {0, 0, 1, 1, 2, 3, 3, 4, 5, 6, 6, 6};
-    GrB_Index col_indices[] = {1, 3, 4, 6, 5, 0, 2, 5, 2, 2, 3, 4};
+    GrB_Index row_indices[] = {0, 0, 1, 1, 2, 2, 3, 3, 4};
+    GrB_Index col_indices[] = {1, 2, 2, 4, 3, 4, 0, 4, 1};
 
     bool values[] = {true, true, true, true, true, true, true, true, true, true, true, true};
 
@@ -173,13 +172,12 @@ void run_batch() {
     GrB_Matrix_free(&distances);
 }
 
-
 int main(int argc, char **argv) {
 
     //Initialize GraphBLAS environment
     GrB_init(GrB_BLOCKING);
 
-    run_batch();
+    run_uw();
 
     //Finalize GraphBLAS environment
     GrB_finalize();

@@ -196,33 +196,6 @@ main.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/bsc_graphblas.dir/build.make CMakeFiles/bsc_graphblas.dir/main.c.s
 .PHONY : main.c.s
 
-map.o: map.c.o
-
-.PHONY : map.o
-
-# target to build an object file
-map.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/bsc_graphblas.dir/build.make CMakeFiles/bsc_graphblas.dir/map.c.o
-.PHONY : map.c.o
-
-map.i: map.c.i
-
-.PHONY : map.i
-
-# target to preprocess a source file
-map.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/bsc_graphblas.dir/build.make CMakeFiles/bsc_graphblas.dir/map.c.i
-.PHONY : map.c.i
-
-map.s: map.c.s
-
-.PHONY : map.s
-
-# target to generate assembly for a file
-map.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/bsc_graphblas.dir/build.make CMakeFiles/bsc_graphblas.dir/map.c.s
-.PHONY : map.c.s
-
 uw_sssp.o: uw_sssp.c.o
 
 .PHONY : uw_sssp.o
@@ -292,9 +265,6 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
-	@echo "... map.o"
-	@echo "... map.i"
-	@echo "... map.s"
 	@echo "... uw_sssp.o"
 	@echo "... uw_sssp.i"
 	@echo "... uw_sssp.s"

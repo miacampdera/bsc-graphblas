@@ -13,10 +13,6 @@ CMakeFiles/bsc_graphblas.dir/main.c.o
  /Users/miapulidocampdera/desktop/bsc-graphblas/uw_sssp.h
  /Users/miapulidocampdera/desktop/bsc-graphblas/w_sssp.h
  /usr/local/include/GraphBLAS.h
-CMakeFiles/bsc_graphblas.dir/map.c.o
- /Users/miapulidocampdera/desktop/bsc-graphblas/map.c
- /Users/miapulidocampdera/desktop/bsc-graphblas/map.h
- /usr/local/include/GraphBLAS.h
 CMakeFiles/bsc_graphblas.dir/uw_sssp.c.o
  /Users/miapulidocampdera/desktop/bsc-graphblas/uw_sssp.c
  /Users/miapulidocampdera/desktop/bsc-graphblas/uw_sssp.h
