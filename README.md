@@ -3,7 +3,6 @@ Mia Campdera-Pulido
 
 ## Description
 This project consists of several single-source shortest path (SSSP) algorithms: unweighted SSSP, weighted SSSP, and batch SSSP. The algorithms are solved using linear algebra techniques implemented in the GraphBLAS C API specification and support weighted and unweighted graphs in the form of adjacency matrices.
-#
 The project aims to use the algorithms defined to solve board games and find their remoteness. Non-loopy board games, such as tic tac toe, can be defined as a tree and loopy board games, such as chess, as a graph. By putting board game graphs in the form of adjacency matrices we can run the SSSP algorithms and find the desired information.
 
 ## Algorithms
