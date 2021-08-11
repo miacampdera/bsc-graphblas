@@ -177,7 +177,7 @@ int main(int argc, char **argv) {
     //Initialize GraphBLAS environment
     GrB_init(GrB_BLOCKING);
 
-    run_uw();
+    run_w();
 
     //Finalize GraphBLAS environment
     GrB_finalize();
