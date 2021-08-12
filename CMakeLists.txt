@@ -10,3 +10,8 @@ include_directories(/usr/local/include)
 find_library(GRAPHBLAS_LIBRARY graphblas HINTS /usr/local/lib)
 
 target_link_libraries(bsc_graphblas PUBLIC ${GRAPHBLAS_LIBRARY})
+
+enable_testing()
+
+add_test(test_uw_sssp /Users/miapulidocampdera/Desktop/bsc-graphblas/cmake-build-debug)
+

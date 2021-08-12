@@ -45,7 +45,7 @@ GrB_Info w_sssp(GrB_Vector result, GrB_Index source, GrB_Matrix graph) {
     }
 
     GrB_Vector_apply_BinaryOp1st_UINT64(distance, GrB_NULL, GrB_NULL, GrB_PLUS_UINT64, -1, distance, GrB_NULL);
-    
+
     GrB_Vector_dup(result, distance); //copy final distance vector (levels) to result
 
     //Free
